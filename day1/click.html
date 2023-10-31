@@ -1,0 +1,14 @@
+<div id="app">
+  <button v-on:click="buttonClick">click me!</button>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  Vue.createApp({
+    methods: {
+      buttonClick() {
+        console.log("clicked!");
+      },
+    },
+  }).mount("#app");
+</script>
