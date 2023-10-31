@@ -1,0 +1,35 @@
+<div id="app">
+  <child-component v-on:update="showAlert"> </child-component>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  var childComponent = {
+    data() {
+      return {
+        message: 10,
+      };
+    },
+    template: `
+        <button @click='sendEvent'>
+            click me!
+        </button>
+        <h1>{{message}}</h1>`,
+    methods: {
+      sendEvent() {
+        this.$emit("update");
+      },
+    },
+  };
+
+  Vue.createApp({
+    components: {
+      "child-component": childComponent,
+    },
+    methods: {
+      showAlert() {
+        alert("event received!");
+      },
+    },
+  }).mount("#app");
+</script>
