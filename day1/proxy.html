@@ -1,0 +1,21 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  const a = {
+    x: 10,
+    y: 20,
+  };
+
+  const app = new Proxy(a, {
+    get(target, prop, value) {
+      console.log("값에 접근");
+    },
+    // set() {
+    //   console.log("값을 변경"); // 이렇게 하면 아무것도 반영되지 않음
+    // },
+    set(target, prop, value) {
+      // 이렇게 해야 값이 변경됨 -> Reactivity
+      target[prop] = value;
+      console.log(`${value}로 값을 변경`);
+    },
+  });
+</script>
