@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>사각형의 특징</h1>
+    <p>가로 길이 : {{ instance.width }}</p>
+    <p>세로 길이 : {{ instance.height }}</p>
+    <p>넓이 : {{ instance.calculateSize() }}</p>
+    <p>둘레 : {{ instance.calculateLength() }}</p>
+    <hr>
+    <h3>정사각형이라면,</h3>
+    <p>한 변의 길이 : {{ instance2.width }}</p>
+    <p>정사각형 넓이 : {{ instance2.calculateSize() }}</p>
+    <p>정사각형 둘레 : {{ instance2.calculateLength() }}</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    
+    class Square {
+      constructor(width, height) {
+        this.width = width;
+        this.height = height;
+      }
+
+      calculateSize() {
+        return this.width.value * this.height.value;
+      }
+
+      calculateLength() {
+        return 2 * (this.width.value + this.height.value);
+      }
+    }
+
+    class FourSquare extends Square {
+      constructor(width, height) {
+        super(width, height);
+      }
+    }
+
+    const {createApp, ref} = Vue;
+
+    createApp({
+      setup() {
+        const width = ref(5);
+        const height = ref(6);
+        const squareSide = ref(7);
+
+        const instance = new Square(width, height);
+        const instance2 = new FourSquare(squareSide, squareSide);
+
+        // const calculateSize = (width, height) => {
+        //   return width * height;
+        // };
+        // const calculateLength = (width, height) => {
+        //   return 2 * width + 2 * height;
+        // }
+
+        return {
+          // width,
+          // height,
+          // squareSide,
+          instance,
+          instance2,
+          // calculateSize,
+          // calculateLength,
+        };
+      }
+    }).mount("#app");
+
+  </script>
+</body>
+</html>
