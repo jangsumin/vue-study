@@ -19,14 +19,16 @@ const debounceHandler = _.debounce((event) => {
 .search {
   position: relative;
   width: 300px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
 }
 
 input {
   box-sizing: border-box;
-  width: 100%;
+  width: 85%;
   padding: 10px 12px;
-  border: 1px solid #bbb;
-  border-radius: 8px;
+  border-radius: 8px 0 0 8px;
+  border: none;
   font-size: 14px;
 }
 
@@ -35,7 +37,7 @@ img {
   position: absolute;
   width: 17px;
   top: 10px;
-  right: 12px;
+  right: 14px;
   margin: 0;
 }
 </style>
