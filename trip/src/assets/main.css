@@ -1,10 +1,11 @@
 :root {
   --body-color: #0a0f12;
-  --navbar-color: #212529;
+  --navbar-color: rgb(33, 37, 41, 0.5);
   --font-color: #ffffff;
 }
 
 body {
   background-color: var(--body-color);
   color: var(--font-color);
+  font-family: "Pretendard", sans-serif;
 }
